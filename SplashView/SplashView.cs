@@ -15,7 +15,7 @@ namespace SplashView
 		public abstract void StartAnimation (Action onComplete = null);
 
 		public CGSize IconStartSize { get; } = new CGSize (60, 60);
-		public nfloat AnimationDuration { get; } = 1f;
+		public nfloat AnimationDuration { get; set; } = 1f;
 
 		CAKeyFrameAnimation iconAnimation;
 		public CAAnimation IconAnimation {

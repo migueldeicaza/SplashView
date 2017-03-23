@@ -16,6 +16,9 @@ namespace SplashView
 		{
 			BackgroundViewColor = backgroundColor;
 			IconLayer = CreateShapeLayerWithBezierPath (bezierPath);
+
+			this.Layer.AddSublayer(IconLayer);
+			this.BackgroundColor = this.IconColor;
 		}
 
 		CAShapeLayer CreateShapeLayerWithBezierPath (UIBezierPath bezierPath)
@@ -71,7 +74,8 @@ namespace SplashView
 				VectorSplashView parent;
 
 				wparent.TryGetTarget (out parent);
-				parent.animationCompletionHandler ();
+				if (parent.animationCompletionHandler != null)
+					parent.animationCompletionHandler ();
 				parent.RemoveFromSuperview ();
 			}
 		}
